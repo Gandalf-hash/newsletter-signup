@@ -1,6 +1,5 @@
 import FormField from './components/FormField.jsx';
 import ItemList from './components/ItemList.jsx';
-import PrimaryButton from './components/PrimaryButton.jsx';
 function App() {
 
   return (
@@ -9,10 +8,7 @@ function App() {
         <h1 className="font-bold text-5xl md:text-6xl mb-8">Stay updated!</h1>
         <span className="md:text-xl mb-8"> Join 60,000+ product managers receiving monthly updates on:</span>
         <ItemList />
-        <div className="w-full flex flex-col mt-10">
           <FormField />
-          <PrimaryButton />
-        </div>
       </div>
       <div className=''>
         <img className='hidden md:block w-full h-full' src="/images/illustration-sign-up-desktop.svg" alt="Desktop Illustration Sign Up" />
