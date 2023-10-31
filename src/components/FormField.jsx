@@ -18,7 +18,7 @@ function FormField() {
 
     }
     return (
-        <form className='flex flex-col w-full gap-3 ' onSubmit={handleSubmit}>
+        <form className='flex items flex-col w-full gap-3 ' onSubmit={handleSubmit}>
             <label htmlFor="emailAddress" className='font-bold'>Email Address</label>
             <input
                 className='border-secondary-color focus:border-primary-color border-2 max-w-md rounded-md px-2 py-4'
