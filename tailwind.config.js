@@ -18,7 +18,6 @@ module.exports = {
       "primary-color": "#202A44",
       "secondary-color": "#808080",
       "text-color": "#ffffff",
-      "border-error": "",
       "border-bg": "#f2b294",
     },
   },
