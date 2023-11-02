@@ -1,35 +1,72 @@
-import React from 'react'
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function FormField() {
-    const [email, setEmail] = React.useState("");
-    const [error, setError] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const [error, setError] = React.useState(null);
+  const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!email.trim()) {
-            setError(true)
-        } else {
-            setError(false)
-        }
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const handleBlur = () => {
+    if (!isValidEmail(email)) {
+      setError("Valid Email Required");
+    } else {
+      setError(null);
     }
+  };
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value)
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+    if (isValidEmail(email)) {
+      navigate("/success");
     }
-    return (
-        <form className='flex items flex-col w-full gap-3 ' onSubmit={handleSubmit}>
-            <label htmlFor="emailAddress" className='font-bold'>Email Address</label>
-            <input
-                className='border-secondary-color focus:border-primary-color border-2 max-w-md rounded-md px-2 py-4'
-                type="email"
-                name="emailAddress"
-                placeholder="email@company.com"
-                value={email}
-                onChange={handleEmailChange}
-            />
-        </form>
-    )
+  };
+
+  const inputStyle = {
+    backgroundColor: error ? "#f2ddda" : "",
+    color: error ? "#ed614c" : "",
+    borderColor: error ? "#FF0000" : "",
+  };
+
+  return (
+    <div>
+      <form
+        className="mt-10 flex text-sm flex-col w-full gap-3 "
+        onSubmit={handleSubmit}
+      >
+        <div className="flex flex-row justify-between">
+          <label htmlFor="emailAddress" className="font-bold">
+            Email Address
+          </label>
+          <span className="md:mr-10">
+            {error && <h2 style={{ color: "red" }}>{error}</h2>}
+          </span>
+        </div>
+        <input
+          className={
+            "border-secondary-color focus:border-primary-color border-2 max-w-md rounded-md px-2 py-4"
+          }
+          style={inputStyle}
+          type="email"
+          name="emailAddress"
+          placeholder="email@company.com"
+          value={email}
+          onBlur={handleBlur}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <button
+          className="rounded-md w-full max-w-md mt-4 font-bold px-2 py-4 bg-primary-color text-text-color"
+          type="submit"
+        >
+          Subscribe to monthly newsletter
+        </button>
+      </form>
+    </div>
+  );
 }
 
-export default FormField
+export default FormField;

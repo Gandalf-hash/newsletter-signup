@@ -9,7 +9,7 @@ function ItemList() {
     return (
         <div className='space-y-4 text-lg md:text-xl flex-col items-center'>
             {items.map((item, index) => (
-                <div className="flex space-x-4 items-center" key={index}>
+                <div className="flex space-x-4 items-start md:items-center" key={index}>
                     <img src="/images/icon-list.svg" alt="Icon List" />
                     <span>{item.text}</span>
                 </div>
