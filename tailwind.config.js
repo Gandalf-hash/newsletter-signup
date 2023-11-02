@@ -12,7 +12,7 @@ module.exports = {
     },
     extend: {},
     fontFamily: {
-      body: ["Roboto", "sans-serif"],
+      " body": ["Roboto-Regular", "sans-serif"],
     },
     colors: {
       "primary-color": "#202A44",

@@ -1,14 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import PrimaryButton from "./PrimaryButton";
 
-function FormField() {
+const FormField = () => {
   const [email, setEmail] = React.useState("");
   const [error, setError] = React.useState(null);
   const navigate = useNavigate();
 
-  function isValidEmail(email) {
+  const isValidEmail = (email) => {
     return /\S+@\S+\.\S+/.test(email);
-  }
+  };
 
   const handleBlur = () => {
     if (!isValidEmail(email)) {
@@ -21,8 +22,18 @@ function FormField() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isValidEmail(email)) {
+    if (!isValidEmail(email)) {
+      setError("Valid Email Required");
+    } else {
+      localStorage.setItem("userEmail", email);
       navigate("/success");
+    }
+  };
+
+  const handleChange = (event) => {
+    setEmail(event.target.value);
+    if (error) {
+      setError(null);
     }
   };
 
@@ -42,7 +53,7 @@ function FormField() {
           <label htmlFor="emailAddress" className="font-bold">
             Email Address
           </label>
-          <span className="md:mr-10">
+          <span className="mr-2">
             {error && <h2 style={{ color: "red" }}>{error}</h2>}
           </span>
         </div>
@@ -56,17 +67,12 @@ function FormField() {
           placeholder="email@company.com"
           value={email}
           onBlur={handleBlur}
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={handleChange}
         />
-        <button
-          className="rounded-md w-full max-w-md mt-4 font-bold px-2 py-4 bg-primary-color text-text-color"
-          type="submit"
-        >
-          Subscribe to monthly newsletter
-        </button>
+        <PrimaryButton title="Subscribe to monthly newsletter" type="submit" />
       </form>
     </div>
   );
-}
+};
 
 export default FormField;
