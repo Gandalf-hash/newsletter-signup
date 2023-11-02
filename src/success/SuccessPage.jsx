@@ -1,12 +1,12 @@
 import React from "react";
 import SuccessBannerMessage from "../components/SuccessBannerMessage.jsx";
 
-function SuccessPage() {
+const SuccessPage = () => {
   return (
     <div>
       <SuccessBannerMessage />
     </div>
   );
-}
+};
 
 export default SuccessPage;
