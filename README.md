@@ -35,11 +35,8 @@ Users should be able to:
 
 ### Screenshot
 
-```html
-c:\Users\Johannes Phetoane\Downloads\Screenshot 2023-11-03 at 08-12-41 Frontend Mentor Newsletter sign-up form with success message.png
-```
+![Screenshot 2023-11-03 at 08-12-41 Frontend Mentor Newsletter sign-up form with success message](https://github.com/Gandalf-hash/newsletter-signup/assets/53972152/97e4502a-7ed9-451c-92f8-a25d728d34a8)
 
-![](./screenshot.jpg)
 
 ### Links
 
