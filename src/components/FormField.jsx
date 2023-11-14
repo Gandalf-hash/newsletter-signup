@@ -4,6 +4,7 @@ import PrimaryButton from "./PrimaryButton";
 
 const FormField = () => {
   const [email, setEmail] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const navigate = useNavigate();
 
@@ -25,8 +26,13 @@ const FormField = () => {
     if (!isValidEmail(email)) {
       setError("Valid Email Required");
     } else {
-      localStorage.setItem("userEmail", email);
-      navigate("/success");
+      setLoading(true);
+
+      setTimeout(() => {
+        localStorage.setItem("userEmail", email);
+        navigate("/success");
+        setLoading(false);
+      }, 3000);
     }
   };
 
@@ -69,7 +75,11 @@ const FormField = () => {
           onBlur={handleBlur}
           onChange={handleChange}
         />
-        <PrimaryButton title="Subscribe to monthly newsletter" type="submit" />
+        <PrimaryButton
+          title="Subscribe to monthly newsletter"
+          type="submit"
+          disabled={loading}
+        />
       </form>
     </div>
   );

@@ -23,18 +23,15 @@ function FormPage() {
     <div className="min-h-screen items-center xl:bg-primary-color flex justify-center">
       <div className="md:px-6 md:py-6 max-w-6xl h-full border-text-color rounded-3xl bg-text-color flex-col-reverse flex md:flex-row justify-center text-primary-color">
         <div className="p-8  w-full justify-center pc:mr-16 md:max-w-lg flex flex-col">
-          <h1 className="font-bold text-5xl lg::text-6xl mb-8">
+          <h1 className="font-bold text-5xl lg::text-6xl mb-4 lg:mb-8">
             Stay updated!
           </h1>
-          <span className="md:text-xl mb-8">
+          <span className="md:text-xl mb-4 lg:mb-8">
             Join 60,000+ product managers receiving monthly updates on:
           </span>
-          <div className="space-y-4 text-lg md:text-xl flex-col items-center">
+          <div className="lg:space-y-4 space-y-2 text-lg md:text-xl flex-col items-center">
             {listItems.map((item, index) => (
-              <div
-                className="flex space-x-4 items-start md:items-center"
-                key={index}
-              >
+              <div className="flex space-x-4 items-start" key={index}>
                 <img src="/images/icon-list.svg" alt="Icon List" />
                 <span>{item.text}</span>
               </div>
