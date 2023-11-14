@@ -13,6 +13,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       " body": ["Roboto-Regular", "sans-serif"],
+      "gs-bold": ["Roboto-bold", "sans-serif"],
     },
     colors: {
       "primary-color": "#202A44",
